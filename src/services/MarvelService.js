@@ -4,6 +4,7 @@ import { async } from "jshint/src/prod-params";
 class MarvelService {
     _apiBase = 'https://gateway.marvel.com:443/v1/public/';
     _apiKey = 'apikey=3600919019d130dae21b55a13ed586e2';
+    _baseOffset = 1552;
 
     getResource = async (url) => {
         const res = await fetch(url);
@@ -15,9 +16,8 @@ class MarvelService {
         return await res.json();
     }
 
-    getAllCharacters = async () => {
-        const res = await this.getResource(`${this._apiBase}characters?offset=210&${this._apiKey}`);
-        
+    getAllCharacters = async (offset = this._baseOffset) => {
+        const res = await this.getResource(`${this._apiBase}characters?limit=9&offset=${offset}&${this._apiKey}`); // Limit 9 characters
         return res.data.results.map(this._transformCharacter);  // сформується масив з об'єктами, таких, як в _transformCharacter
     }
 

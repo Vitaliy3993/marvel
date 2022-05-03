@@ -39,7 +39,7 @@ class CharInfo extends Component {
             .then(this.onCharLoaded)
             .catch(this.onError)
 
-        this.foo.bar = 0;
+        /* this.foo.bar = 0; */
     } 
 
     onCharLoaded = (char) => {
@@ -93,41 +93,39 @@ const View = ({char}) => {
     return (
         <>
             <div className="char__basics">
-                    <img src={thumbnail} alt={name} style={objectFit}/>
-                    <div>
-                        <div className="char__info-name">{name}</div>
-                        <div className="char__btns">
-                            <a href={homepage} className="button button__main">
-                                <div className="inner">homepage</div>
-                            </a>
-                            <a href={wiki} className="button button__secondary">
-                                <div className="inner">Wiki</div>
-                            </a>
-                        </div>
+                <img src={thumbnail} alt={name} style={objectFit}/>
+                <div>
+                    <div className="char__info-name">{name}</div>
+                    <div className="char__btns">
+                        <a href={homepage} className="button button__main">
+                            <div className="inner">homepage</div>
+                        </a>
+                        <a href={wiki} className="button button__secondary">
+                            <div className="inner">Wiki</div>
+                        </a>
                     </div>
                 </div>
-                <div className="char__descr">
-                    {description}
-                </div>
-                <div className="char__comics">Comics:</div>
-                <ul className="char__comics-list">
-                    {comics.length > 0 ? null : "There is no comics character"}
-                    {
-                        comics.map((item, i) => {
-                            if (i > 10) {
-                                return;
-                            }
-                            return (
-                                <li key={i} className="char__comics-item">
-                                    {item.name}
-                                </li>
-                            )
-                        })
-                    }
-                    
-                    
-                </ul>
-            </>
+            </div>
+            <div className="char__descr">
+                {description}
+            </div>
+            <div className="char__comics">Comics:</div>
+            <ul className="char__comics-list">
+                {comics.length > 0 ? null : "There is no comics character"}
+                {
+                    comics.map((item, i) => {
+                        if (i > 10) {
+                            return;
+                        }
+                        return (
+                            <li key={i} className="char__comics-item">
+                                {item.name}
+                            </li>
+                        )
+                    })
+                }
+            </ul>
+        </>
     )
 }
 
