@@ -24,10 +24,10 @@ class MarvelService {
     }
 
     _transformCharacter = (char) => {
-        if (char.description == '') {
+        if (char.description === '') {
             char.description = "Nothing info" // якщо немає опису, то замість нього це повідомлення
         } else if (char.description.length > 200) {
-            char.description = char.description.slice(0, 200) + ' ...'
+            char.description = char.description.slice(0, 200) + ' ...';
         }
 
         return {
