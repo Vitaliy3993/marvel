@@ -24,6 +24,12 @@ class RandomChar extends Component {
         clearInterval(this.timerId);
     }
 
+    onCharLoading = () => {
+        this.setState({
+            loading: true
+        })
+    }
+
     onCharLoaded = (char) => {
         this.setState({
             char,
@@ -40,6 +46,7 @@ class RandomChar extends Component {
 
     updateChar = () => {
         const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000); // формула для випадкового персонажа
+        this.onCharLoading();
         this.marvelService
             .getCharacter(id)
             .then(this.onCharLoaded) // аргумент res прийде автоматично сюди і запишеться як char

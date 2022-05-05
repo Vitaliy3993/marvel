@@ -4,7 +4,7 @@ import { async } from "jshint/src/prod-params";
 class MarvelService {
     _apiBase = 'https://gateway.marvel.com:443/v1/public/';
     _apiKey = 'apikey=3600919019d130dae21b55a13ed586e2';
-    _baseOffset = 1552;
+    _baseOffset = 1532;
 
     getResource = async (url) => {
         const res = await fetch(url);
